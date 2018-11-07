@@ -13,15 +13,12 @@ public class DigPow {
     }
 
     public static long digPow(int n, int p) {
-        String number = String.valueOf(n);
         final int[] cont = {p};
-
-        long sum = number
+        long sum = String.valueOf(n)
             .chars()
             .mapToObj(Character::getNumericValue)
             .mapToLong(digit -> (long) Math.pow(digit, cont[0]++))
             .sum();
-
         return sum % n == 0 ? sum / n : -1;
     }
 
